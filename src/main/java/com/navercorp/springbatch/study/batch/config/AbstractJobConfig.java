@@ -8,14 +8,14 @@ import com.navercorp.springbatch.study.batch.JobConfig;
 
 public abstract class AbstractJobConfig implements JobConfig {
 	@Override
-	public Map<String, Object> createAndGetJobParameters(Map<String, Object> jobParameterMap) {
-		if (jobParameterMap == null) {
-			jobParameterMap = new HashMap<>();
+	public Map<String, Object> createAndGetJobParameters(Map<String, Object> jobParam) {
+		if (jobParam == null) {
+			jobParam = new HashMap<>();
 		}
 
-		jobParameterMap.put("runId", UUID.randomUUID().toString());
+		jobParam.put("runId", UUID.randomUUID().toString());
 
-		return setJobParameters(jobParameterMap);
+		return setJobParameters(jobParam);
 	}
 
 	// 필요하면 오버라이딩해서 사용하세요
